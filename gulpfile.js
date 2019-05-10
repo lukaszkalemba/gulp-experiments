@@ -15,3 +15,17 @@ gulp.task('scss', function() {
     .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(gulp.dest('./dist/css'));
 });
+
+gulp.task('js', function() {
+  return gulp
+    .src('./src/**/*.js')
+    .pipe(concat('index.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/js'));
+});
+
+gulp.task('watch', function() {
+  gulp.watch('./src/scss/**/*.scss', ['scss']);
+  gulp.watch('./src/js/**/*.js', ['js']);
+  gulp.watch('./src/index.html', ['html']);
+});
