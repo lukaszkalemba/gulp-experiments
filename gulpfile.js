@@ -29,3 +29,5 @@ gulp.task('watch', function() {
   gulp.watch('./src/js/**/*.js', ['js']);
   gulp.watch('./src/index.html', ['html']);
 });
+
+gulp.task('default', ['html', 'scss', 'js', 'watch']);
